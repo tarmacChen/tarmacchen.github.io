@@ -1,0 +1,17 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'tarmac-blog'
+theme = 'paperesque'
+
+[[params.topmenu]]
+  name = "Posts"
+  url = "Posts/"
+
+[[params.topmenu]]
+  name = "Tags"
+  url = "Tags/"
+
+[[params.topmenu]]
+  name = "About"
+  url = "About/"
+
