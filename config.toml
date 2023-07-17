@@ -1,17 +1,35 @@
 baseURL = ''
 languageCode = 'en-us'
 title = 'blueturtle.dev'
-theme = 'paperesque'
+theme = 'archie'
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefenceguesssyntax = true
+paginate = 5
 
-[[params.topmenu]]
-  name = "Posts"
-  url = "Posts/"
+[params]
+mode="toggle"
+subtitle = "blog..."
+mathjax = true
+katex = true
 
-[[params.topmenu]]
-  name = "Tags"
-  url = "Tags/"
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
 
-[[params.topmenu]]
-  name = "About"
-  url = "About/"
+[[menu.main]]
+name = "Posts"
+url = "posts/"
+weight = 2
+
+[[menu.main]]
+name = "Tags"
+url = "tags/"
+weight = 3
+
+[[menu.main]]
+name = "About"
+url = "about/"
+weight=4
 
