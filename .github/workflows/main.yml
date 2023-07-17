@@ -3,7 +3,7 @@ name: Github-Pages
 on: 
   push:
     branches: 
-      - master
+      - gh-pages
       
 jobs:
   deploy:
@@ -25,6 +25,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: tarmacChen/tarmacChen.github.io
           publish_dir: ./public
           publish_branch: master
