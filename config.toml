@@ -1,6 +1,6 @@
-baseURL = 'http://example.org/'
+baseURL = ''
 languageCode = 'en-us'
-title = 'tarmac-blog'
+title = 'blueturtle.dev'
 theme = 'paperesque'
 
 [[params.topmenu]]
