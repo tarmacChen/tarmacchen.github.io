@@ -19,7 +19,7 @@ jobs:
           hugo-version: '0.80.0'
       
       - name: Build
-        run: hugo -D --minify --cleanDestinationDir
+        run: hugo -b "https://blueturtle.dev" --minify --cleanDestinationDir
         
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
