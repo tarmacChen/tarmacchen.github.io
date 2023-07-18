@@ -8,8 +8,8 @@ pygmentscodefenceguesssyntax = true
 paginate = 5
 
 [params]
-mode="toggle"
-useCDN=false
+mode = "toggle"
+useCDN = false
 subtitle = "blog..."
 mathjax = true
 katex = true
@@ -21,16 +21,20 @@ weight = 1
 
 [[menu.main]]
 name = "Posts"
-url = "posts/"
+url = "/posts"
 weight = 2
 
 [[menu.main]]
-name = "Tags"
-url = "tags/"
+name = "Tips"
+url = "/tips"
 weight = 3
 
 [[menu.main]]
-name = "About"
-url = "about/"
-weight=4
+name = "Tags"
+url = "/tags"
+weight = 4
 
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 5

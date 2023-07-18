@@ -1,7 +1,0 @@
-{{ if .Draft }}Draft: {{ end }}
-{{ with .Title }}
-  {{ $.Scratch.Set "title" (markdownify .) }}
-{{ else }}
-  {{ $.Scratch.Set "title" (delimit (first 1 (findRE "(<h1.*?>.*?</h1>)" .Content)) "" | plainify) }}
-{{ end }}
-{{ $.Scratch.Get "title" }}
