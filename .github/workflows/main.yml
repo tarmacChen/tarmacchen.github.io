@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: hugo -b "https://blueturtle.dev" --minify --cleanDestinationDir
 
-      - name: "finnp/create-file-action@master"
+      - uses: "finnp/create-file-action@master"
         env:
           FILE_NAME: "./public/CNAME"
           FILE_DATA: "blueturtle.dev"
