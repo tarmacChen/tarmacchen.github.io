@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JDK on blueturtle.dev</title><link>https://blueturtle.dev/tags/jdk/</link><description>Recent content in JDK on blueturtle.dev</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 16 Mar 2023 19:30:16 +0800</lastBuildDate><atom:link href="https://blueturtle.dev/tags/jdk/index.xml" rel="self" type="application/rss+xml"/><item><title>在PowerShell底下使用Jabba來管理JDK</title><link>https://blueturtle.dev/posts/jabba-jdk-manager/</link><pubDate>Thu, 16 Mar 2023 19:30:16 +0800</pubDate><guid>https://blueturtle.dev/posts/jabba-jdk-manager/</guid><description>彰化波波草 前言 我想要讓我的PowerShell環境在調用JDK時有彈性可以隨時切換版本靈活使用，在WSL底下有sdkman可以用，但在Pure PowerShell底下就要找別的解決方案，我找到了一個叫Jabba的工具，這篇文章簡單介紹如何安裝及使用
+Jabba 官方介紹
+Java Version Manager inspired by nvm (Node.js). Written in Go.
+安裝 避免用Scoop來安裝Jabba 雖然我很喜歡用Scoop(一種套件管理工具像是macOS上的homebrew)管理我所有的開發工具，但這邊用Scoop來安裝Jabba會有一些問題應該避免使用
+相關issue
+這篇文章也有提到這點
+直接用官方提供的指令來安裝 用PowerShell執行以下指令
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-Expression (
+Invoke-WebRequest https://github.com/shyiko/jabba/raw/master/install.ps1 -UseBasicParsing
+).Content
+(use the same command to upgrade)
+基本使用 列出所有Java 17版本可供安裝的JDK &amp;gt; jabba ls-remote | grep 1.17
+amazon-corretto@1.17.0-0.35.1
+openjdk@1.17.0
+openjdk-ri@1.17.0
+zulu@1.17.0-0
+安裝openjdk@1.17.0 &amp;gt; jabba install openjdk@1.17.0
+&amp;gt; jabba current
+openjdk@1.17.0
+安裝完會直接將當前的JDK切換至該版本
+透過alias default設定預設的JDK版本 &amp;gt; jabba alias default openjdk@1.17.0
+default -&amp;gt; C:\Users\hugo\.</description></item></channel></rss>
