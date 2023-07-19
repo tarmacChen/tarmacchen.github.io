@@ -1,0 +1,38 @@
+baseURL = ''
+languageCode = 'en-us'
+title = 'blueturtle.dev'
+theme = 'archie'
+pygmentsstyle = "borland"
+pygmentscodefences = false
+pygmentscodefenceguesssyntax = true
+paginate = 5
+
+[markup.highlight]
+lineNos = true
+tabWidth = 2
+hl_Lines = ""
+noClasses = true
+
+[params]
+mode = "toggle"
+useCDN = false
+subtitle = "tech blog"
+mathjax = true
+katex = true
+author = "tarmacChen"
+
+[[menu.main]]
+name = "Home"
+url = "/"
+
+[[menu.main]]
+name = "Posts"
+url = "/posts"
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+
+[[menu.main]]
+name = "About"
+url = "/about"

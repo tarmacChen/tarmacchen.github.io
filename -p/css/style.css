@@ -49,7 +49,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lora', serif;
+  font-family: "Lora", serif;
 }
 
 h1#title {
@@ -58,7 +58,8 @@ h1#title {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 }
 
 .content-container {
@@ -78,8 +79,7 @@ body {
   background-color: white;
 }
 
-@media(min-width: 720px) {
-
+@media (min-width: 720px) {
   /* Make everything 10% smaller! */
   html {
     font-size: 14.4px;
@@ -153,21 +153,21 @@ body.sticky-nav .navbar {
 
 .nav-bkg {
   color: white;
-  background: #00223E;
+  background: #00223e;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(135deg, #00223E 80%, #FFA17F 80%);
+  background: -webkit-linear-gradient(135deg, #00223e 80%, #ffa17f 80%);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(135deg, #00223E 80%, #FFA17F 80%);
+  background: linear-gradient(135deg, #00223e 80%, #ffa17f 80%);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .nav-bkg-50 {
   color: white;
-  background: #00223E;
+  background: #00223e;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(135deg, #00223E 50%, #FFA17F 50%);
+  background: -webkit-linear-gradient(135deg, #00223e 50%, #ffa17f 50%);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(135deg, #00223E 50%, #FFA17F 50%);
+  background: linear-gradient(135deg, #00223e 50%, #ffa17f 50%);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -273,7 +273,7 @@ figure:not(.no-border).style-tables table {
 hr {
   padding: 0;
   border: none;
-  border-top: 1px solid #AAA;
+  border-top: 1px solid #aaa;
   margin: 2.5em 3em;
 }
 
@@ -406,7 +406,7 @@ ul.right-links li {
   margin-right: 1em;
 }
 
-@media(min-width: 440px) {
+@media (min-width: 440px) {
   ul.right-links {
     display: block;
   }
@@ -425,11 +425,23 @@ p {
 
 .look-sheet-bkg.draft,
 .list-of-titles li.draft a:hover {
-  background: repeating-linear-gradient(135deg, white, white 10px, #ffd4a3 12px, #ffd4a3 12px);
+  background: repeating-linear-gradient(
+    135deg,
+    white,
+    white 10px,
+    #ffd4a3 12px,
+    #ffd4a3 12px
+  );
 }
 
 .list-of-titles li.draft {
-  background: repeating-linear-gradient(135deg, #fffdf7, #fffdf7 10px, #ffd4a3 12px, #ffd4a3 12px);
+  background: repeating-linear-gradient(
+    135deg,
+    #fffdf7,
+    #fffdf7 10px,
+    #ffd4a3 12px,
+    #ffd4a3 12px
+  );
 }
 
 .post-meta.draft {
@@ -450,7 +462,7 @@ aside.article-aside {
   margin-top: 3em;
 }
 
-aside.article-aside>p:first-child {
+aside.article-aside > p:first-child {
   margin-top: 1rem;
 }
 
@@ -467,7 +479,7 @@ aside.content-warning {
   display: inline-block;
 }
 
-aside.content-warning>p:last-child {
+aside.content-warning > p:last-child {
   margin-bottom: 0;
 }
 
@@ -478,10 +490,10 @@ spacing, but if it appears after other content it should have sufficient spacing
 to make it look like a new section. I think we should theoretically be able to
 do that with margins, but I don't understand how they work enough yet.
 */
-h2+aside.article-aside,
-h3+aside.article-aside,
-h4+aside.article-aside,
-h5+aside.article-aside {
+h2 + aside.article-aside,
+h3 + aside.article-aside,
+h4 + aside.article-aside,
+h5 + aside.article-aside {
   margin-top: 0.5em;
 }
 
@@ -517,18 +529,19 @@ h6:first-child {
   user-select: none;
   background-color: transparent;
   line-height: 1.5;
-  border-radius: .25rem;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-  padding: .25rem .75rem;
-  font-size: .875rem;
+  border-radius: 0.25rem;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
 
   color: white;
   box-shadow: 0 5px 5px -5px #777777;
-  background: #00223E;
+  background: #00223e;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(135deg, #00223E 85%, #FFA17F 85%);
+  background: -webkit-linear-gradient(135deg, #00223e 85%, #ffa17f 85%);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(135deg, #00223E 85%, #FFA17F 85%);
+  background: linear-gradient(135deg, #00223e 85%, #ffa17f 85%);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -544,19 +557,19 @@ h6:first-child {
   display: none;
 }
 
-.expander input.show:checked~.inner {
+.expander input.show:checked ~ .inner {
   display: block;
 }
 
-.expander input.hide:checked~.inner {
+.expander input.hide:checked ~ .inner {
   display: none;
 }
 
-.expander input.show:checked~.button-show {
+.expander input.show:checked ~ .button-show {
   display: none;
 }
 
-.expander input.hide:checked~.button-hide {
+.expander input.hide:checked ~ .button-hide {
   display: none;
 }
 
@@ -569,9 +582,8 @@ presentation as well.
 This is only a problem on the newer Goldmark renderer, which I'm not using yet.
 */
 a.footnote-backref::before {
-  content: ' ';
+  content: " ";
 }
-
 
 /* all this stuff is for header links */
 
@@ -634,18 +646,23 @@ h4:not(:hover) .header-link {
   display: none;
 }
 
-.floating-footnotes li[role=doc-endnote] p:last-child {
+.floating-footnotes li[role="doc-endnote"] p:last-child {
   margin-bottom: 0;
 }
 
 a.timestamp {
   border: solid 1px #007bff;
   background: rgb(0, 123, 255);
-  background: linear-gradient(145deg, rgba(0, 123, 255, 1) 60%, rgba(0, 86, 179, 1) 100%);
+  background: linear-gradient(
+    145deg,
+    rgba(0, 123, 255, 1) 60%,
+    rgba(0, 86, 179, 1) 100%
+  );
   color: white;
   border-radius: 4px;
   padding: 2px;
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
 
 figure audio {
@@ -667,16 +684,16 @@ article table th:not(:first-child) {
 }
 
 article table thead tr {
-  border-bottom: 1px solid #00223E;
+  border-bottom: 1px solid #00223e;
 }
 
 article table {
-  border-bottom: 1px solid #00223E;
+  border-bottom: 1px solid #00223e;
 }
 
 article table thead th {
   padding-bottom: 0.5em;
-  font-family: 'Lora', serif;
+  font-family: "Lora", serif;
 }
 
 article table tbody tr:first-child td {
@@ -700,7 +717,7 @@ article table th {
   margin-bottom: 4em;
 }
 
-@media(min-width: 1170px) {
+@media (min-width: 1170px) {
   .sidepull-container {
     position: relative;
   }
