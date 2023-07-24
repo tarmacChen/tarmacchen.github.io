@@ -14,9 +14,9 @@
 		</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script>
 <script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script></head><body><div class=content><header><div class=main><a href=https://blueturtle.dev>blueturtle.dev</a></div><nav><a href=/about>About</a>
-<a href=/>Home</a>
-<a href=/posts>Posts</a>
 <a href=/tags>Tags</a>
+<a href=/cards>Cards</a>
+<a href=/posts>Posts</a>
 | <span id=dark-mode-toggle onclick=toggleTheme()></span>
 <script src=https://blueturtle.devjs/themetoggle.js></script></nav></header><main><article><div class=title><h1 class=title>在PowerShell底下使用Jabba來管理JDK</h1><div class=meta>Posted on Mar 16, 2023</div></div><section class=body><figure><img src=/img/cover/bobograss.jpg><figcaption><h4>彰化波波草</h4></figcaption></figure><h2 id=前言>前言</h2><p>我想要讓我的PowerShell環境在調用JDK時有彈性可以隨時切換版本靈活使用，在WSL底下有sdkman可以用，但在Pure PowerShell底下就要找別的解決方案，我找到了一個叫Jabba的工具，這篇文章簡單介紹如何安裝及使用</p><blockquote><p><a href=https://github.com/shyiko/jabba>Jabba</a> 官方介紹</p><p>Java Version Manager inspired by nvm (Node.js). Written in Go.</p></blockquote><h2 id=安裝>安裝</h2><h3 id=避免用scoop來安裝jabba>避免用Scoop來安裝Jabba</h3><p>雖然我很喜歡用Scoop<code>(一種套件管理工具像是macOS上的homebrew)</code>管理我所有的開發工具，但這邊用Scoop來安裝Jabba會有一些問題應該避免使用</p><p><a href=https://github.com/shyiko/jabba/issues/707>相關issue</a></p><p><a href=https://hackmd.io/@jonz94/BJbp3lsnu>這篇文章也有提到這點</a></p><h3 id=直接用官方提供的指令來安裝>直接用官方提供的指令來安裝</h3><p>用PowerShell執行以下指令</p><pre><code class=language-ps>[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Invoke-Expression (

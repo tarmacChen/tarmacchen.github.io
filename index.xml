@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blueturtle.dev</title><link>https://blueturtle.dev/</link><description>Recent content on blueturtle.dev</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 26 Apr 2023 07:29:25 +0800</lastBuildDate><atom:link href="https://blueturtle.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>同步MTP Device裡的資料</title><link>https://blueturtle.dev/posts/sync-to-mtp/</link><pubDate>Wed, 26 Apr 2023 07:29:25 +0800</pubDate><guid>https://blueturtle.dev/posts/sync-to-mtp/</guid><description> 鬱金香 使用情境 有個儲存裝置透過USB連接到電腦，他的連接協定不是用USB MSC (Usb Mass Storage Device Class)而是MTP，如果想讓裝置內的某個資料夾與本機的資料夾同步，可以怎麼做?
-與USB MSC不同的是，透過MTP協定連接的儲存裝置不像一般的隨身碟會掛載到檔案系統中，也就是在電腦裡找不到一個實際存在的儲存空間 (Volume)可供操作
-我的同步任務需要同時滿足以下兩個條件:
-只複製裝置上不存在的檔案過去 遇到檔案已存在裝置上時自動忽略 探索解決方案 透過檔案總管手動拖拉 這個解法很明顯沒辦法滿足條件，因為複製時遇到檔案已存在的情況會不停跳出是否要覆蓋原有檔案的詢問，如果選擇不要覆蓋就會取消後續的動作
-透過命令列或腳本 我有找到很多命令列工具像是xcopy或robocopy可以滿足同步任務的條件，但問題來了，下指令時我的目的地路徑參數要怎麼輸入，透過MTP協定連接的儲存裝置不會存在檔案系統中，所以要先用mtpmount將MTP Storage掛載到檔案系統再做後續操作，或直接用我最後選擇的解決方案mtpcopy
-mtpcopy GitHub
-安裝 我是透過 Scoop (套件管理工具)安裝到電腦裡
-&amp;gt; scoop install mtpcopy --global
-列出所有的 MTP Storage &amp;gt; mtpcopy storages
-WALKMAN:Internal shared storage:
-WALKMAN:Lyra:
-可以看到我有兩個storage，一個是裝置上的內部儲存空間，另一個是裝置上的記憶卡儲存空間名為Lyra
-同步資料 &amp;gt; mtpcopy copy -R C:\Users\hugo\Music\Music\ WALKMAN:Lyra:\Music\
-&amp;hellip;
-列出路徑匹配到的所有檔案 PS C:\Users\hugo&amp;gt; mtpcopy list WALKMAN:Lyra:\Music\John*
-WALKMAN:Lyra:\Music\John Mayer
-WALKMAN:Lyra:\Music\John Williams</description></item><item><title>ORM的誕生及了解JPA, Hibernate 與 Spring Data JPA之間的關係</title><link>https://blueturtle.dev/posts/orm-is-born/</link><pubDate>Wed, 22 Mar 2023 20:03:18 +0800</pubDate><guid>https://blueturtle.dev/posts/orm-is-born/</guid><description>清境農場的綿羊 在沒有ORM之前應用程式是怎麼跟資料庫交流的 我們必須透過JDBC API(Java Database Connectivity API)的介面搭配該資料庫適用的JDBC Driver去跟資料庫連接
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blueturtle.dev</title><link>https://blueturtle.dev/</link><description>Recent content on blueturtle.dev</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 22 Mar 2023 20:03:18 +0800</lastBuildDate><atom:link href="https://blueturtle.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>ORM的誕生及了解JPA, Hibernate 與 Spring Data JPA之間的關係</title><link>https://blueturtle.dev/posts/orm-is-born/</link><pubDate>Wed, 22 Mar 2023 20:03:18 +0800</pubDate><guid>https://blueturtle.dev/posts/orm-is-born/</guid><description>清境農場的綿羊 在沒有ORM之前應用程式是怎麼跟資料庫交流的 我們必須透過JDBC API(Java Database Connectivity API)的介面搭配該資料庫適用的JDBC Driver去跟資料庫連接
 JDBC 不同的資料庫有不同的JDBC Driver，透過DriverManager針對不同的請求去回傳對應的JDBC Driver
 JDBC Driver Manager ORM的誕生 除了上述談到針對不同的資料庫有不同的連接方式這個問題，還有應用程式內的資料要怎麼對映到資料表也是個問題，ORM(Object Relational Mapping)的出現就是為了解決這些麻煩的事情，若少了ORM我們要手動去處理資料在這兩者之間的映對關係
 物件模型與資料表的關係 在操作時要把映對關係設定好才能讓資料在物件模型與資料表中做轉換，若資料表改變了結構，映對關係也要同步做調整，實務上資料庫不會只有一種，可能有MySQL、DB2、SQL Server之類的，不同的資料庫有不同的結構與SQL語法，透過ORM的抽象層去設定映對關係，這樣就可以專注在跟業務邏輯有關的代碼上，不用煩惱操作不同的資料庫時，應用程式要做哪些調整才能取得那些資料，ORM是位於資料庫與應用程式間的中間層，透過ORM提供的API介面幫你去跟資料庫打交道，聽起來一切都很美好但也有一些缺點
