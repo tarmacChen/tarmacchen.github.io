@@ -7,12 +7,6 @@ pygmentscodefences = false
 pygmentscodefenceguesssyntax = true
 paginate = 5
 
-[markup.highlight]
-lineNos = true
-tabWidth = 2
-hl_Lines = ""
-noClasses = true
-
 [params]
 mode = "toggle"
 useCDN = false
@@ -21,18 +15,28 @@ mathjax = true
 katex = true
 author = "tarmacChen"
 
-[[menu.main]]
-name = "Home"
-url = "/"
+[markup.highlight]
+lineNos = true
+tabWidth = 2
+hl_Lines = ""
+noClasses = true
 
 [[menu.main]]
 name = "Posts"
 url = "/posts"
+weight = 4
+
+[[menu.main]]
+name = "Cards"
+url = "/cards"
+weight = 3
 
 [[menu.main]]
 name = "Tags"
 url = "/tags"
+weight = 2
 
 [[menu.main]]
 name = "About"
 url = "/about"
+weight = 1
