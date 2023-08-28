@@ -1,0 +1,10 @@
+<div class="post-toc">
+{{/*  {{ if and (gt .WordCount 80) (.Params.toc | default true) }}  */}}
+<aside>
+    {{- $toc:= .TableOfContents -}}
+    {{- $toc:= replaceRE `<ul>\n<li>\n<ul>` `<ul>` $toc -}}
+    {{- safeHTML $toc -}}
+</aside>
+<a href="#" id="toc-toggle"></a>
+{{/*  {{ end }}  */}}
+</div>
