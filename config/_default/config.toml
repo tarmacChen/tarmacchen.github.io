@@ -10,7 +10,7 @@ paginate = 5
 [params]
 mode = "toggle"
 useCDN = false
-subtitle = "tech blog"
+subtitle = "observe, think, learn, action, reflect"
 mathjax = true
 katex = true
 author = "tarmacChen"
