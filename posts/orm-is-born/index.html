@@ -1,4 +1,5 @@
-<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>ORM的誕生及了解JPA, Hibernate 與 Spring Data JPA之間的關係 - blueturtle.dev</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>ORM的誕生及了解JPA, Hibernate 與 Spring Data JPA之間的關係 - blueturtle.dev</title><meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="
       
         清境農場的綿羊 在沒有ORM之前應用程式是怎麼跟資料庫交流的 我們必須透過JDBC API(Java Database Connectivity API)的介面搭配該資料庫適用的JDBC Driver去跟資料庫連接
 JDBC 不同的資料庫有不同的JDBC Driver，透過DriverManager針對不同的請求去回傳對應的JDBC Driver
@@ -26,9 +27,7 @@ JDBC Driver Manager ORM的誕生 除了上述談到針對不同的資料庫有�
 JPA是什麼? JPA全名為Jakarta Persistence API 或在早期叫 Java Persistence API，是一個Java官方為了實現ORM所制定的一套標準規範(Specification)及接口(API)，要注意這是一個規範沒辦法給開發者直接使用，必須透過像是Hibernate、OpenJPA或TopLink之類的JPA Provider才行
 加入實作JPA的ORM Hibernate是什麼? Hibernate是Java生態系中最廣泛使用的ORM框架並且實作了JPA的規範
 Spring Data JPA是什麼? 雖然我們有了ORM來幫助我們處理訪問持久層的操作，但這些ORM框架基於JPA規範又各自擴展了其他功能，導致開發人員無法在這些ORM框架之間無縫切換，於是Spring提出了Spring Data JPA這個解決方案，它是位於JPA與各個ORM框架之間經過抽象化的資料存取層(Data Access Layer)，這樣在Spring底下開發應用程式就不用管底下的ORM框架怎麼變化了
-加入Spring Data JPA 總結 希望這篇文章能幫助讀者了解為什麼要有ORM及什麼是ORM，還有JPA, Hibernate與Spring Data JPA之間的關係，這些觀念對於剛踏入Spring世界的我來說很有幫助"><script src=https://blueturtle.devjs/feather.min.js></script>
-<link href=https://blueturtle.dev/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://blueturtle.dev/css/main.5a923a951384811723cc810c883ca664c0803ffb855b7a218000c2914bb36a3e.css><link id=darkModeStyle rel=stylesheet type=text/css href=https://blueturtle.dev/css/dark.c95c5dcf5f32f8b67bd36f7dab66680e068fce2b303087294114aabf7a7c080b.css disabled><script type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type=text/x-mathjax-config>
+加入Spring Data JPA 總結 希望這篇文章能幫助讀者了解為什麼要有ORM及什麼是ORM，還有JPA, Hibernate與Spring Data JPA之間的關係，這些觀念對於剛踏入Spring世界的我來說很有幫助"><script src=https://blueturtle.devjs/feather.min.js></script><link href=https://blueturtle.dev/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://blueturtle.dev/css/main.5a923a951384811723cc810c883ca664c0803ffb855b7a218000c2914bb36a3e.css><link id=darkModeStyle rel=stylesheet type=text/css href=https://blueturtle.dev/css/dark.c95c5dcf5f32f8b67bd36f7dab66680e068fce2b303087294114aabf7a7c080b.css disabled><script type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type=text/x-mathjax-config>
       MathJax.Hub.Config({
       	tex2jax: {
       		inlineMath: [['$','$'], ['\\(','\\)']],
@@ -40,9 +39,7 @@ Spring Data JPA是什麼? 雖然我們有了ORM來幫助我們處理訪問持久
       				 extensions: ["AMSmath.js", "AMSsymbols.js"] }
       	}
       });
-    </script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script>
-<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script></head><body><div class=content><header><div class=main><a href=https://blueturtle.dev>blueturtle.dev</a></div><link rel=icon type=image/png href><nav><a href=/about>About</a>
+    </script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script></head><body><div class=content><header><div class=main><a href=https://blueturtle.dev>blueturtle.dev</a></div><link rel=icon type=image/png href><nav><a href=/about>About</a>
 <a href=/tags>Tags</a>
 <a href=/cards>Cards</a>
 <a href=/posts>Posts</a>

@@ -5,19 +5,5 @@ Java Version Manager inspired by nvm (Node.js). Written in Go.
 相關issue
 這篇文章也有提到這點
 直接用官方提供的指令來安裝 用PowerShell執行以下指令
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-Expression (
-Invoke-WebRequest https://github.com/shyiko/jabba/raw/master/install.ps1 -UseBasicParsing
-).Content
-(use the same command to upgrade)
-基本使用 列出所有Java 17版本可供安裝的JDK &amp;gt; jabba ls-remote | grep 1.17
-amazon-corretto@1.17.0-0.35.1
-openjdk@1.17.0
-openjdk-ri@1.17.0
-zulu@1.17.0-0
-安裝openjdk@1.17.0 &amp;gt; jabba install openjdk@1.17.0
-&amp;gt; jabba current
-openjdk@1.17.0
-安裝完會直接將當前的JDK切換至該版本
-透過alias default設定預設的JDK版本 &amp;gt; jabba alias default openjdk@1.17.0
-default -&amp;gt; C:\Users\hugo\.</description></item></channel></rss>
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12Invoke-Expression (Invoke-WebRequest https://github.com/shyiko/jabba/raw/master/install.ps1 -UseBasicParsing).Content(use the same command to upgrade)基本使用 列出所有Java 17版本可供安裝的JDK &amp;gt; jabba ls-remote | grep 1.17amazon-corretto@1.17.0-0.35.1openjdk@1.17.0openjdk-ri@1.17.0zulu@1.17.0-0安裝openjdk@1.17.0 &amp;gt; jabba install openjdk@1.17.0&amp;gt; jabba currentopenjdk@1.17.0安裝完會直接將當前的JDK切換至該版本
+透過alias default設定預設的JDK版本 &amp;gt; jabba alias default openjdk@1.17.0default -&amp;gt; C:\Users\hugo\.</description></item></channel></rss>

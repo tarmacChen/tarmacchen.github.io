@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mtpcopy on blueturtle.dev</title><link>https://blueturtle.dev/tags/mtpcopy/</link><description>Recent content in mtpcopy on blueturtle.dev</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 26 Apr 2023 07:29:25 +0800</lastBuildDate><atom:link href="https://blueturtle.dev/tags/mtpcopy/index.xml" rel="self" type="application/rss+xml"/><item><title>同步MTP Device裡的資料</title><link>https://blueturtle.dev/posts/sync-to-mtp/</link><pubDate>Wed, 26 Apr 2023 07:29:25 +0800</pubDate><guid>https://blueturtle.dev/posts/sync-to-mtp/</guid><description> 鬱金香 使用情境 有個儲存裝置透過 USB 連接到電腦，他的連接協定不是用USB MSC (Usb Mass Storage Device Class)而是MTP，如果想讓裝置內的某個資料夾與本機的資料夾同步，可以怎麼做?
+與USB MSC不同的是，透過MTP協定連接的儲存裝置不像一般的隨身碟會掛載到檔案系統中，也就是在電腦裡找不到一個實際存在的儲存空間 (Volume)可供操作
+我的同步任務需要同時滿足以下兩個條件:
+只複製裝置上不存在的檔案過去 遇到檔案已存在裝置上時自動忽略 探索解決方案 透過檔案總管手動拖拉 這個解法很明顯沒辦法滿足條件，因為複製時遇到檔案已存在的情況會不停跳出是否要覆蓋原有檔案的詢問，如果選擇不要覆蓋就會取消後續的動作
+透過命令列或腳本 我有找到很多命令列工具像是xcopy或robocopy可以滿足同步任務的條件，但問題來了，下指令時我的目的地路徑參數要怎麼輸入，透過 MTP 協定連接的儲存裝置不會存在檔案系統中，所以要先用mtpmount將MTP Storage掛載到檔案系統再做後續操作，或直接用我最後選擇的解決方案mtpcopy
+mtpcopy kzmi/mtpcopy
+安裝 我是透過 Scoop (套件管理工具)安裝到電腦裡
+&amp;gt; scoop install mtpcopy --global列出所有的 MTP Storage &amp;gt; mtpcopy storagesWALKMAN:Internal shared storage:WALKMAN:Lyra:可以看到我有兩個 storage，一個是裝置上的內部儲存空間，另一個是裝置上的記憶卡儲存空間名為Lyra
+同步資料 &amp;gt; mtpcopy copy -R C:\Users\hugo\Music\Music\ WALKMAN:Lyra:\Music\列出路徑匹配到的所有檔案 PS C:\Users\hugo&amp;gt; mtpcopy list WALKMAN:Lyra:\Music\John*WALKMAN:Lyra:\Music\John MayerWALKMAN:Lyra:\Music\John Williams</description></item></channel></rss>
