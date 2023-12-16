@@ -2,6 +2,8 @@
 title: "Web API 版本控制"
 date: 2023-12-17T05:59:51+08:00
 draft: false
+tags: ["WebAPI"]
+description: "為什麼要替 Web API 做版本控制"
 ---
 
 ## 為什麼要替 Web API 做版本控制?
