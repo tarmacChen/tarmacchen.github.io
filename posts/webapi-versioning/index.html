@@ -15,8 +15,58 @@
       });
     </script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script></head><body><div class=content><header><div class=main><a href=https://blueturtle.dev>blueturtle.dev</a></div><link rel=icon type=image/png href><nav><a href=/about>About</a>
 <a href=/tags>Tags</a>
-<a href=/cards>Cards</a>
 <a href=/posts>Posts</a>
 |
 <span id=dark-mode-toggle onclick=toggleTheme()></span>
-<script src=https://blueturtle.devjs/themetoggle.js></script></nav></header><main><article><div class=title><h1 class=title>Web API 版本控制</h1><div class=meta>Posted on Dec 17, 2023</div></div><div class=post-tags><nav class="nav tags"><ul class=tags><li><a href=/tags/webapi>WebAPI</a></li></ul></nav></div><div id=top-of-site-pixel-anchor></div><aside class="hidden lg:block tableOfContentContainer" id=tableOfContentContainer><h2>Contents</h2><nav id=TableOfContents><ul><li><a href=#為什麼要替-web-api-做版本控制>為什麼要替 Web API 做版本控制?</a></li><li><a href=#在-url-中加入版本識別>在 URL 中加入版本識別</a></li><li><a href=#在域名中加入版本識別>在域名中加入版本識別</a></li></ul></nav><hr></hr></aside><section class=body><h2 id=為什麼要替-web-api-做版本控制>為什麼要替 Web API 做版本控制?</h2><blockquote><p>這邊的版本控制是指某個 Web API 因為某些因素改變了內部的實作，導致沒有辦法向下兼容，一旦 API 對外發佈了就要保證消費者呼叫後得到的結果其結構永遠不變</p></blockquote><p>例如有個 API 呼叫後可以得到客戶 ID 為 001 的相關資料</p><blockquote><p>company.com/api/customer/001</p></blockquote><p>最一開始呼叫時得到結果</p><p><code>{ "id": 001, "name": "Jack Johnson", }</code></p><p>過了一段時間再次呼叫 API 卻得到了</p><p><code>{ "id": 001, "firstName": "Jack", "lastName": "Johnson", }</code></p><p>因為 API 設計初期考慮不周，消費者在呼叫時總是需要自行將客戶的姓名做進一步的處理，才能得到客戶的姓氏與名字，於是開發團隊很快的改變了 API 回應的數據結構，這樣的變動就會導致先前呼叫 API 的人要調整自己的程式碼，才能得到正確的客戶姓名</p><h2 id=在-url-中加入版本識別>在 URL 中加入版本識別</h2><p>為了避免這種情況發生，我們可以在 API 請求的 url 中加入版本控制的路由，確保呼叫 API 的人清楚明白自己呼叫了哪個版本的 API，進一步會得到什麼樣的回應</p><blockquote><p>company.com/api/<strong>v1</strong>/customer/001</p></blockquote><p>後續的 API 內部異動如果沒有辦法向下兼容就做版本遞增</p><blockquote><p>company.com/api/<strong>v2</strong>/customer/001</p></blockquote><p>這麼一來呼叫 API v1 的人始終可以得到</p><p><code>{ "id": 001, "name": "Jack Johnson", }</code></p><p>而呼叫 API v2 的人可以得到</p><p><code>{ "id": 001, "firstName": "Jack", "lastName": "Johnson", }</code></p><h2 id=在域名中加入版本識別>在域名中加入版本識別</h2><p>我們也可以這樣做，用域名來區分現在呼叫的 API 是什麼版本</p><blockquote><p>v1.api.company.com/customer/001</p></blockquote><p>這也是一個解決方案，但這樣的設計會有很多衍生問題需要處理</p></section><script src=https://giscus.app/client.js data-repo=tarmacChen/giscusstore data-repo-id=R_kgDOI_TU-w data-category=Announcements data-category-id=DIC_kwDOI_TU-84CUSVU data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=zh-TW data-loading=lazy crossorigin=anonymous async></script></article><div class=toc-wrapper><div class=post-toc><aside><nav id=TableOfContents><ul><li><a href=#為什麼要替-web-api-做版本控制>為什麼要替 Web API 做版本控制?</a></li><li><a href=#在-url-中加入版本識別>在 URL 中加入版本識別</a></li><li><a href=#在域名中加入版本識別>在域名中加入版本識別</a></li></ul></nav></aside><a href=# id=toc-toggle></a></div></div></main><footer><div style=display:flex></div><div class=footer-info>2023 <a href=https://github.com/athul/archie>Archie Theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></footer></div></body></html>
+<script src=https://blueturtle.devjs/themetoggle.js></script></nav></header><main><article><div class=title><h1 class=title>Web API 版本控制</h1><div class=meta>Posted on Dec 17, 2023</div></div><div class=post-tags><nav class="nav tags"><ul class=tags><li><a href=/tags/web-api>web api</a></li></ul></nav></div><div id=top-of-site-pixel-anchor></div><aside class="hidden lg:block tableOfContentContainer" id=tableOfContentContainer><h2>Contents</h2><nav id=TableOfContents><ul><li><a href=#為什麼要替-web-api-做版本控制>為什麼要替 Web API 做版本控制?</a></li><li><a href=#解決方案>解決方案</a><ul><li><a href=#用-url-區分版本>用 URL 區分版本</a></li><li><a href=#用-domain-區分版本>用 Domain 區分版本</a></li><li><a href=#用-parameter-區分版本>用 Parameter 區分版本</a></li></ul></li><li><a href=#結語>結語</a></li></ul></nav><hr></hr></aside><section class=body><h2 id=為什麼要替-web-api-做版本控制>為什麼要替 Web API 做版本控制?</h2><blockquote><p>這邊的版本控制是指某個 Web API 因為某些因素改變了內部的實作，導致沒有辦法向下兼容，一旦 API 對外發佈了就要保證消費者呼叫後得到的結果其結構永遠不變</p></blockquote><p>例如有個 API 呼叫後可以得到客戶 ID 為 001 的相關資料</p><pre><code class=language-bash>&gt; curl &quot;company.com/api/customer/001&quot;
+{
+  &quot;id&quot;: &quot;001&quot;,
+  &quot;name&quot;: &quot;Jack Johnson&quot;,
+}`
+</code></pre><p>過了一陣子再次呼叫 API 卻得到了</p><pre><code class=language-bash>&gt; curl &quot;company.com/api/customer/001&quot;
+{
+  &quot;id&quot;: &quot;001&quot;,
+  &quot;firstName&quot;: &quot;Jack&quot;,
+  &quot;lastName&quot;: &quot;Johnson&quot;,
+}
+</code></pre><p>因為該 API 設計初期考慮不周，消費者在呼叫時總是需要自行將客戶的姓名做進一步的處理，才能得到客戶的姓氏與名字，於是開發團隊改變了 API 回應的數據結構，這樣的變動就會導致先前呼叫 API 的人要調整自己的程式碼，才能得到正確的客戶姓名</p><h2 id=解決方案>解決方案</h2><h3 id=用-url-區分版本>用 URL 區分版本</h3><p>為了避免這種情況發生，我們可以在 API 請求的 url 中加入版本控制的路由，確保呼叫 API 的人清楚明白自己呼叫了哪個版本的 API，進一步會得到什麼樣的回應</p><p><code>company.com/api/v1/customer/001</code></p><p>後續的 API 異動如果沒有辦法向下兼容就做版本遞增</p><p><code>company.com/api/v2/customer/001</code></p><p>這麼一來呼叫 API v1 的人始終可以得到</p><pre><code class=language-bash>&gt; curl &quot;company.com/api/v1/customer/001&quot;
+{
+  &quot;id&quot;: &quot;001&quot;,
+  &quot;name&quot;: &quot;Jack Johnson&quot;,
+}
+</code></pre><p>而呼叫 API v2 的人可以得到</p><pre><code class=language-bash>&gt; curl &quot;company.com/api/v2/customer/001&quot;
+{
+  &quot;id&quot;: &quot;001&quot;,
+  &quot;firstName&quot;: &quot;Jack&quot;,
+  &quot;lastName&quot;: &quot;Johnson&quot;,
+}
+</code></pre><h3 id=用-domain-區分版本>用 Domain 區分版本</h3><p>我們也可以這樣做，用 Domain 來區分現在呼叫的 API 是什麼版本，不同的 API 版本使用不同的 Domain</p><p><code>v1.api.company.com/customer/001</code></p><p>這也是一種解決方案，但這樣的設計會有很多衍生問題需要處理</p><h4 id=domain-中的-api-版本辨識符號要放在域名的前綴或後綴>Domain 中的 API 版本辨識符號要放在域名的前綴或後綴?</h4><p><code>v1.api.company.com/customer/001</code></p><p><code>company.com.api.v1/customer/001</code></p><p><code>api.v1.company.com/customer/001</code></p><blockquote><p>別忘了我們變動的可是 Web API 的 Domain，這個調整造成的副作用遠比改變單一接口的返回數據結構影響來得大多了，每一次調整都要購買或租用新的 Domain，同時要告知所有使用到此 API 的消費者這個訊息&mldr;</p><p>嘿! 我們換了 API 的 Domain 哦，我不曉得對你們的影響有多大，祝你好運!</p></blockquote><h4 id=跨來源資源共用-cross-origin-resource-sharing-cors>跨來源資源共用 Cross-Origin Resource Sharing (CORS)</h4><p><code>company.com</code>，設計了這個 API 的公司網站需要呼叫 API 進一步取得訂單資料</p><p>因為 v1 版的 API 沒有取得訂單資料的接口，所以必須先呼叫 v2 版的 API</p><p><code>v2.api.company.com/order/sn314056</code></p><blockquote><p>&#9888;&#xfe0f; Access to XMLHttpRequest at &lsquo;<a href="http://v2.api.company.com/order/sn314056'">http://v2.api.company.com/order/sn314056'</a> from origin &lsquo;<a href=http://company.com>http://company.com</a>&rsquo; has been blocked by CORS policy: Response to preflight request doesn&rsquo;t pass access control check: No &lsquo;Access-Control-Allow-Origin&rsquo; header is present on the requested resource.</p></blockquote><p>安全性考量，當你從一個網站嘗試取得其他來源（網域）的資源時會被阻擋，你只能取得與應用程式相同網域底下的資源</p><p>Web API Server 必須調整 Response 的 Header 來告訴瀏覽器允許 Host 來自<code>company.com</code>的請求</p><pre><code class=language-bash># on server (v2.api.company.com)
+access-control-allow-origin: company.com
+</code></pre><p>調整之後我們成功取得了訂單資料</p><pre><code class=language-json>{
+  &quot;orderId&quot;: &quot;sn314056&quot;,
+  &quot;customer&quot;: {
+    &quot;id&quot;: &quot;001&quot;
+  },
+  &quot;items&quot;: [{ &quot;name&quot;: &quot;Learning JavaScript&quot; }]
+}
+</code></pre><p>取得訂單資料後我想知道下這筆訂單的客戶他的名字是什麼，所以我利用客戶的 ID 再做一次查詢</p><p><code>v1.api.company.com/customer/001</code></p><blockquote><p>&#9888;&#xfe0f; Access to XMLHttpRequest at &lsquo;<a href="http://v1.api.company.com/customer/001'">http://v1.api.company.com/customer/001'</a> from origin &lsquo;<a href=http://company.com>http://company.com</a>&rsquo; has been blocked by CORS policy: Response to preflight request doesn&rsquo;t pass access control check: No &lsquo;Access-Control-Allow-Origin&rsquo; header is present on the requested resource.</p></blockquote><p>因為 v1 的 Web API Server 是另一台機器，需要做相同的調整才能順利取得資料</p><pre><code class=language-bash># on server (v1.api.company.com)
+access-control-allow-origin: company.com
+</code></pre><p>終於有了&mldr;</p><pre><code class=language-json>{
+  &quot;id&quot;: &quot;001&quot;,
+  &quot;name&quot;: &quot;Jack Johnson&quot;
+}
+</code></pre><p><code>在 Domain 中加入版本識別符</code>來做 Web API 的版本控制看來不是一個理想的方法，沒有絕對的理由應該盡量避免使用</p><h3 id=用-parameter-區分版本>用 Parameter 區分版本</h3><p>如果要用這種解決方案，第一個要決定用來識別 API 版本的參數名稱</p><p><code>api.company.com/customer/001?v=1</code></p><p><code>api.company.com/customer/001?apiversion=1</code></p><p><code>api.company.com/customer/001?api=v1</code></p><p>假設我們決定使用第一種命名風格，在 Web API Server 對應的 endpoint 中要加入取得 API 版本資訊及在不同版本底下要如何處理的相關邏輯</p><blockquote><p>這邊用 Node.js 的 Express 做為代碼範例</p></blockquote><pre><code class=language-js>const express = require(&quot;express&quot;);
+const app = express();
+
+app.get(&quot;/customer/:id&quot;, function (req, res) {
+  let apiVersion = req.query.v;
+  if (apiVersion == 1) {
+    // do something
+  }
+  if (apiVersion == 2) {
+    // do something
+  }
+
+  // when apiVersion is empty or other value, need to do something else to handle
+});
+</code></pre><p>這個解決方案有什麼副作用？</p><ol><li>每個 endpoint 都要加入判斷調用版本的邏輯代碼</li><li>參數的名稱如果變動了，Web API 的 Provider 跟 Consumer 都要做調整</li><li>用來識別 API 版本的參數名稱傳錯了，要怎麼處理?</li></ol><h2 id=結語>結語</h2><p>在本篇文章中思考了三種解決方案來處理 Web API 版本控制的問題，當然還有像是在表頭上加入 X-API-Version 等等其他做法，整體看來 <code>用 URL 區分版本</code> 似乎是最理想的做法，帶來最少的副作用且好調整好維護，API 版本控制不得不做，除非你的 API 永遠不會更新迭代</p></section><script src=https://giscus.app/client.js data-repo=tarmacChen/giscusstore data-repo-id=R_kgDOI_TU-w data-category=Announcements data-category-id=DIC_kwDOI_TU-84CUSVU data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=zh-TW data-loading=lazy crossorigin=anonymous async></script></article><div class=toc-wrapper><div class=post-toc><aside><nav id=TableOfContents><ul><li><a href=#為什麼要替-web-api-做版本控制>為什麼要替 Web API 做版本控制?</a></li><li><a href=#解決方案>解決方案</a><ul><li><a href=#用-url-區分版本>用 URL 區分版本</a></li><li><a href=#用-domain-區分版本>用 Domain 區分版本</a></li><li><a href=#用-parameter-區分版本>用 Parameter 區分版本</a></li></ul></li><li><a href=#結語>結語</a></li></ul></nav></aside><a href=# id=toc-toggle></a></div></div></main><footer><div style=display:flex></div><div class=footer-info>2023 <a href=https://github.com/athul/archie>Archie Theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></footer></div></body></html>

@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blueturtle.dev</title><link>https://blueturtle.dev/</link><description>Recent content on blueturtle.dev</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 17 Dec 2023 05:59:51 +0800</lastBuildDate><atom:link href="https://blueturtle.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Web API 版本控制</title><link>https://blueturtle.dev/posts/webapi-versioning/</link><pubDate>Sun, 17 Dec 2023 05:59:51 +0800</pubDate><guid>https://blueturtle.dev/posts/webapi-versioning/</guid><description>為什麼要替 Web API 做版本控制? 這邊的版本控制是指某個 Web API 因為某些因素改變了內部的實作，導致沒有辦法向下兼容，一旦 API 對外發佈了就要保證消費者呼叫後得到的結果其結構永遠不變
 例如有個 API 呼叫後可以得到客戶 ID 為 001 的相關資料
-company.com/api/customer/001
-最一開始呼叫時得到結果
-{ &amp;quot;id&amp;quot;: 001, &amp;quot;name&amp;quot;: &amp;quot;Jack Johnson&amp;quot;, }
-過了一段時間再次呼叫 API 卻得到了
-{ &amp;quot;id&amp;quot;: 001, &amp;quot;firstName&amp;quot;: &amp;quot;Jack&amp;quot;, &amp;quot;lastName&amp;quot;: &amp;quot;Johnson&amp;quot;, }
-因為 API 設計初期考慮不周，消費者在呼叫時總是需要自行將客戶的姓名做進一步的處理，才能得到客戶的姓氏與名字，於是開發團隊很快的改變了 API 回應的數據結構，這樣的變動就會導致先前呼叫 API 的人要調整自己的程式碼，才能得到正確的客戶姓名
-在 URL 中加入版本識別 為了避免這種情況發生，我們可以在 API 請求的 url 中加入版本控制的路由，確保呼叫 API 的人清楚明白自己呼叫了哪個版本的 API，進一步會得到什麼樣的回應
+&amp;gt; curl &amp;quot;company.com/api/customer/001&amp;quot; { &amp;quot;id&amp;quot;: &amp;quot;001&amp;quot;, &amp;quot;name&amp;quot;: &amp;quot;Jack Johnson&amp;quot;, }` 過了一陣子再次呼叫 API 卻得到了
+&amp;gt; curl &amp;quot;company.com/api/customer/001&amp;quot; { &amp;quot;id&amp;quot;: &amp;quot;001&amp;quot;, &amp;quot;firstName&amp;quot;: &amp;quot;Jack&amp;quot;, &amp;quot;lastName&amp;quot;: &amp;quot;Johnson&amp;quot;, } 因為該 API 設計初期考慮不周，消費者在呼叫時總是需要自行將客戶的姓名做進一步的處理，才能得到客戶的姓氏與名字，於是開發團隊改變了 API 回應的數據結構，這樣的變動就會導致先前呼叫 API 的人要調整自己的程式碼，才能得到正確的客戶姓名
+解決方案 用 URL 區分版本 為了避免這種情況發生，我們可以在 API 請求的 url 中加入版本控制的路由，確保呼叫 API 的人清楚明白自己呼叫了哪個版本的 API，進一步會得到什麼樣的回應
 company.com/api/v1/customer/001
-後續的 API 內部異動如果沒有辦法向下兼容就做版本遞增
+後續的 API 異動如果沒有辦法向下兼容就做版本遞增
 company.com/api/v2/customer/001
 這麼一來呼叫 API v1 的人始終可以得到
-{ &amp;quot;id&amp;quot;: 001, &amp;quot;name&amp;quot;: &amp;quot;Jack Johnson&amp;quot;, }</description></item><item><title>同步MTP Device裡的資料</title><link>https://blueturtle.dev/posts/sync-to-mtp/</link><pubDate>Wed, 26 Apr 2023 07:29:25 +0800</pubDate><guid>https://blueturtle.dev/posts/sync-to-mtp/</guid><description> 鬱金香 使用情境 有個儲存裝置透過 USB 連接到電腦，他的連接協定不是用USB MSC (Usb Mass Storage Device Class)而是MTP，如果想讓裝置內的某個資料夾與本機的資料夾同步，可以怎麼做?
+&amp;gt; curl &amp;quot;company.</description></item><item><title>同步MTP Device裡的資料</title><link>https://blueturtle.dev/posts/sync-to-mtp/</link><pubDate>Wed, 26 Apr 2023 07:29:25 +0800</pubDate><guid>https://blueturtle.dev/posts/sync-to-mtp/</guid><description> 鬱金香 使用情境 有個儲存裝置透過 USB 連接到電腦，他的連接協定不是用USB MSC (Usb Mass Storage Device Class)而是MTP，如果想讓裝置內的某個資料夾與本機的資料夾同步，可以怎麼做?
 與USB MSC不同的是，透過MTP協定連接的儲存裝置不像一般的隨身碟會掛載到檔案系統中，也就是在電腦裡找不到一個實際存在的儲存空間 (Volume)可供操作
 我的同步任務需要同時滿足以下兩個條件:
 只複製裝置上不存在的檔案過去 遇到檔案已存在裝置上時自動忽略 探索解決方案 透過檔案總管手動拖拉 這個解法很明顯沒辦法滿足條件，因為複製時遇到檔案已存在的情況會不停跳出是否要覆蓋原有檔案的詢問，如果選擇不要覆蓋就會取消後續的動作
