@@ -6,6 +6,7 @@ pygmentsstyle = "borland"
 pygmentscodefences = false
 pygmentscodefenceguesssyntax = true
 paginate = 5
+enableEmoji=true
 
 [params]
 mode = "toggle"
@@ -24,11 +25,6 @@ noClasses = true
 [[menu.main]]
 name = "Posts"
 url = "/posts"
-weight = 4
-
-[[menu.main]]
-name = "Cards"
-url = "/cards"
 weight = 3
 
 [[menu.main]]
