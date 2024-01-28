@@ -5,7 +5,7 @@ theme = 'archie'
 pygmentsstyle = "borland"
 pygmentscodefences = false
 pygmentscodefenceguesssyntax = true
-paginate = 5
+paginate = 10
 enableEmoji=true
 
 [params]
